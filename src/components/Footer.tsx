@@ -29,8 +29,8 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail size={20} />
-                <a href="mailto:info@incelegal.com" className="text-sm hover:text-secondary transition-colors">
-                  info@incelegal.com
+                <a href="mailto:info@ozcelikabanoz.com" className="text-sm hover:text-secondary transition-colors">
+                  info@ozcelikabanoz.com
                 </a>
               </div>
             </div>
@@ -80,7 +80,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/20 text-center text-sm">
-          <p>&copy; 2024 İnce Legal. All rights reserved.</p>
+          <p>&copy; 2024 Özçelik & Abanoz. All rights reserved.</p>
         </div>
       </div>
     </footer>

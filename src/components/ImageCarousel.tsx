@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const slides = [
   {
     image: "https://images.unsplash.com/photo-1486718448742-163732cd1544",
-    title: "Welcome to İnce Legal!",
+    title: "Welcome to Özçelik & Abanoz!",
     description: "Experienced lawyers providing high-quality legal services.",
   },
   {
