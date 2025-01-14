@@ -18,7 +18,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <a href="/" className="flex items-center">
-            <span className="text-2xl font-playfair font-bold text-primary">İnce Legal</span>
+            <span className="text-2xl font-playfair font-bold text-primary">Özçelik & Abanoz</span>
           </a>
 
           {/* Desktop Navigation */}
