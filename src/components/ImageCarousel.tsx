@@ -3,12 +3,12 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
-    image: "https://images.unsplash.com/photo-1486718448742-163732cd1544",
+    image: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=3840",
     title: "Welcome to Özçelik & Abanoz!",
     description: "Experienced lawyers providing high-quality legal services.",
   },
   {
-    image: "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e",
+    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=3840",
     title: "Expert Legal Solutions",
     description: "Comprehensive legal services tailored to your needs.",
   },
