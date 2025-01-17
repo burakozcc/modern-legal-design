@@ -1,6 +1,42 @@
 import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
+import { useState } from "react";
+import { useToast } from "@/components/ui/use-toast";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const { toast } = useToast();
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) {
+      toast({
+        title: "Error",
+        description: "Please enter your email address",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    // Here you would typically make an API call to subscribe the user
+    toast({
+      title: "Success!",
+      description: "You have been subscribed to our newsletter.",
+    });
+    setEmail("");
+  };
+
+  const handleSocialClick = (platform: string) => {
+    const urls = {
+      linkedin: "https://www.linkedin.com/company/ozcelikabanoz",
+      privacy: "/privacy-policy",
+      terms: "/terms-of-use",
+    };
+
+    if (platform in urls) {
+      window.open(urls[platform as keyof typeof urls], "_blank");
+    }
+  };
+
   return (
     <footer className="bg-primary text-white py-16">
       <div className="container mx-auto px-4">
@@ -21,18 +57,20 @@ const Footer = () => {
                   Çankaya - Ankara - Türkiye
                 </p>
               </div>
-              <div className="flex items-center space-x-3">
+              <a 
+                href="tel:+903125110535" 
+                className="flex items-center space-x-3 hover:text-secondary transition-colors"
+              >
                 <Phone size={20} />
-                <a href="tel:+903125110535" className="text-sm hover:text-secondary transition-colors">
-                  +90 312 511 05 35
-                </a>
-              </div>
-              <div className="flex items-center space-x-3">
+                <span className="text-sm">+90 312 511 05 35</span>
+              </a>
+              <a 
+                href="mailto:info@ozcelikabanoz.com" 
+                className="flex items-center space-x-3 hover:text-secondary transition-colors"
+              >
                 <Mail size={20} />
-                <a href="mailto:info@ozcelikabanoz.com" className="text-sm hover:text-secondary transition-colors">
-                  info@ozcelikabanoz.com
-                </a>
-              </div>
+                <span className="text-sm">info@ozcelikabanoz.com</span>
+              </a>
             </div>
           </div>
 
@@ -42,10 +80,12 @@ const Footer = () => {
             <p className="text-sm mb-4">
               Subscribe to our newsletter for legal updates and news.
             </p>
-            <form className="space-y-4">
+            <form onSubmit={handleSubscribe} className="space-y-4">
               <input
                 type="email"
                 placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-4 py-2 rounded bg-white/10 border border-white/20 focus:outline-none focus:border-secondary"
               />
               <button
@@ -61,19 +101,25 @@ const Footer = () => {
           <div>
             <h4 className="text-xl font-playfair mb-6">Quick Links</h4>
             <div className="space-y-2">
-              <a href="#privacy" className="block text-sm hover:text-secondary transition-colors">
+              <button 
+                onClick={() => handleSocialClick('privacy')}
+                className="block text-sm hover:text-secondary transition-colors"
+              >
                 Privacy Policy
-              </a>
-              <a href="#terms" className="block text-sm hover:text-secondary transition-colors">
+              </button>
+              <button 
+                onClick={() => handleSocialClick('terms')}
+                className="block text-sm hover:text-secondary transition-colors"
+              >
                 Terms of Use
-              </a>
+              </button>
               <div className="pt-4">
-                <a
-                  href="#linkedin"
+                <button
+                  onClick={() => handleSocialClick('linkedin')}
                   className="inline-block p-2 bg-white/10 rounded hover:bg-white/20 transition-colors"
                 >
                   <Linkedin size={20} />
-                </a>
+                </button>
               </div>
             </div>
           </div>

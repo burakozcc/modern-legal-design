@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useToast } from "@/components/ui/use-toast";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [language, setLanguage] = useState("EN");
+  const { toast } = useToast();
 
   const navItems = [
     { name: "About Us", href: "#about" },
@@ -12,6 +15,22 @@ const Header = () => {
     { name: "Careers", href: "#careers" },
     { name: "Contact", href: "#contact" },
   ];
+
+  const handleLanguageToggle = () => {
+    setLanguage(prev => prev === "EN" ? "TR" : "EN");
+    toast({
+      title: "Language Changed",
+      description: `Website language changed to ${language === "EN" ? "Turkish" : "English"}`,
+    });
+  };
+
+  const handleNavClick = (href: string) => {
+    setIsMenuOpen(false);
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <header className="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
@@ -24,16 +43,19 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item.name}
-                href={item.href}
+                onClick={() => handleNavClick(item.href)}
                 className="text-sm font-inter text-gray-700 hover:text-primary transition-colors"
               >
                 {item.name}
-              </a>
+              </button>
             ))}
-            <button className="px-4 py-2 bg-primary text-white rounded hover:bg-primary-light transition-colors">
-              TR
+            <button 
+              onClick={handleLanguageToggle}
+              className="px-4 py-2 bg-primary text-white rounded hover:bg-primary-light transition-colors"
+            >
+              {language}
             </button>
           </nav>
 
@@ -50,16 +72,19 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="md:hidden mt-4 pb-4">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item.name}
-                href={item.href}
-                className="block py-2 text-gray-700 hover:text-primary transition-colors"
+                onClick={() => handleNavClick(item.href)}
+                className="block w-full text-left py-2 text-gray-700 hover:text-primary transition-colors"
               >
                 {item.name}
-              </a>
+              </button>
             ))}
-            <button className="mt-4 w-full px-4 py-2 bg-primary text-white rounded hover:bg-primary-light transition-colors">
-              TR
+            <button 
+              onClick={handleLanguageToggle}
+              className="mt-4 w-full px-4 py-2 bg-primary text-white rounded hover:bg-primary-light transition-colors"
+            >
+              {language}
             </button>
           </nav>
         )}
