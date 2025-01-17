@@ -12,6 +12,11 @@ const slides = [
     title: "Expert Legal Solutions",
     description: "Comprehensive legal services tailored to your needs.",
   },
+  {
+    image: "https://images.unsplash.com/photo-1584466987264-06b27b334c75?q=80&w=3840",
+    title: "Our Ankara Office",
+    description: "Serving clients in the heart of Turkey's capital.",
+  },
 ];
 
 const ImageCarousel = () => {
