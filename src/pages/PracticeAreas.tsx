@@ -114,9 +114,9 @@ const PracticeAreas = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {practices.map((practice, index) => (
-            <Accordion key={index} type="single" collapsible>
-              <AccordionItem value={`item-${index}`}>
-                <Card className="group hover:shadow-lg transition-shadow duration-300 cursor-pointer bg-accent overflow-hidden">
+            <Card key={index} className="group hover:shadow-lg transition-shadow duration-300 cursor-pointer bg-accent overflow-hidden">
+              <Accordion type="single" collapsible>
+                <AccordionItem value={`item-${index}`}>
                   <AccordionTrigger className="w-full">
                     <CardContent className="p-6 flex items-center space-x-4">
                       <div className="bg-primary rounded-full p-3 text-white">
@@ -130,9 +130,9 @@ const PracticeAreas = () => {
                   <AccordionContent className="px-6 pb-6">
                     <p className="text-gray-600">{practice.description}</p>
                   </AccordionContent>
-                </Card>
-              </AccordionItem>
-            </Accordion>
+                </AccordionItem>
+              </Accordion>
+            </Card>
           ))}
         </div>
       </div>
