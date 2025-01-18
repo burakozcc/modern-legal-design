@@ -4,7 +4,12 @@ const AboutUs = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="relative h-[300px] bg-primary flex items-center justify-center">
+      <div className="relative h-[300px] bg-primary flex items-center justify-center"
+           style={{
+             backgroundImage: "url('/law-library.jpg')",
+             backgroundSize: 'cover',
+             backgroundPosition: 'center'
+           }}>
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/80" />
         <h1 className="relative text-4xl md:text-5xl font-playfair font-bold text-white z-10">
           About Us
