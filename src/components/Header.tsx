@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
@@ -19,10 +20,11 @@ const Header = () => {
   ];
 
   const handleLanguageToggle = () => {
-    setLanguage(prev => prev === "EN" ? "TR" : "EN");
+    const newLanguage = language === "EN" ? "TR" : "EN";
+    setLanguage(newLanguage);
     toast({
       title: "Language Changed",
-      description: `Website language changed to ${language === "EN" ? "Turkish" : "English"}`,
+      description: `Website language changed to ${newLanguage === "TR" ? "Turkish" : "English"}`,
     });
   };
 
